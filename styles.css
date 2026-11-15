@@ -79,7 +79,14 @@ body::before {
 .about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: center; }
 .about p { margin: 0; font-size: 1.2rem; }
 .about p + p { margin-top: 1rem; }
-.about img { width: 100%; border-radius: 4px; }
+.about img { 
+  width: 100%; 
+  max-height: 32rem; 
+  object-fit: cover; 
+  object-position: center; 
+  border-radius: 4px; 
+  display: block;
+}
 .form { max-width: 36rem; margin: 0 auto; display: grid; gap: 1rem; }
 .field { display: grid; gap: 0.35rem; }
 .field input, .field select, .field textarea { width: 100%; min-height: 2.75rem; padding: 0.7rem 0.8rem; border: 1px solid #5c403338; background: #fdfbf8; color: var(--color-ink); font-family: var(--font-display); font-size: 1.05rem; box-sizing: border-box; }
@@ -105,4 +112,5 @@ body::before {
   .hero { min-height: auto; padding-top: 2.5rem; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .gallery-item img { height: 14rem; }
+  .about img { max-height: 24rem; }
 }
