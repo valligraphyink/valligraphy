@@ -61,7 +61,7 @@ img { display: block; max-width: 100%; }
 .instagram-link { display: inline-block; margin-top: 1.25rem; padding-bottom: .2rem; border-bottom: 1px solid var(--gold); color: var(--gold-dark); text-decoration: none; font: 500 .57rem var(--sans); letter-spacing: .14em; text-transform: uppercase; }
 .about-section { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); padding: 2.6rem clamp(1.5rem, 5vw, 5rem); background: #f1eae0; }
 .about-photo { height: clamp(260px, 33vw, 420px); overflow: hidden; }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 37%; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 76%; }
 .about-copy { max-width: 520px; padding: 1rem 0; }
 .about-copy .eyebrow { margin-bottom: .45rem; }
 .about-copy h2 { margin: 0 0 .45rem; font: 500 clamp(2.2rem, 3.3vw, 3.4rem)/1 var(--serif); }
