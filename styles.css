@@ -171,3 +171,5 @@ h1 em, h2 em { color: var(--gold-deep); font-weight: 400; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Cloudflare preview-only build trigger. */
