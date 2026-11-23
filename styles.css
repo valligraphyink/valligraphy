@@ -132,5 +132,3 @@ body::before {
   .gallery-item img { height: 14rem; }
   .about img { max-width: 18rem; max-height: 22rem; }
 }
-.ig-embed { max-width: 34rem; margin: 0 auto 2.5rem; }
-.ig-embed .instagram-media { margin: 0 auto !important; }
