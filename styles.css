@@ -103,6 +103,7 @@ body::before {
 .field { display: grid; gap: 0.35rem; }
 .field input, .field select, .field textarea { width: 100%; min-height: 2.75rem; padding: 0.7rem 0.8rem; border: 1px solid #5c403338; background: #fdfbf8; color: var(--color-ink); font-family: var(--font-display); font-size: 1.05rem; box-sizing: border-box; }
 .field textarea { min-height: 8rem; }
+.sent { max-width: 36rem; margin: 0 auto 1.25rem; padding: 0.9rem 1rem; text-align: center; background: #efe6d6; border: 1px solid var(--color-gold); color: var(--color-brown); }
 .note, .footer { text-align: center; }
 .lede a, .note a, .ig { color: var(--color-brown); }
 .ig { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; }
