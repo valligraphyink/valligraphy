@@ -70,7 +70,8 @@ body::before {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-.card h3 { margin: 0 0 0.5rem; font-size: 1.7rem; font-weight: 500; color: var(--color-brown); }
+.card h3 { margin: 0 0 0.15rem; font-size: 1.7rem; font-weight: 500; color: var(--color-brown); }
+.subtitle { margin: 0 0 0.55rem; color: var(--color-gold); font-style: italic; letter-spacing: 0.04em; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
 .gallery-item { margin: 0; position: relative; overflow: hidden; border-radius: 4px; background: #fcfaf6; box-shadow: 0 2px 8px #5c40331a; transition: transform 0.2s; }
 .gallery-item:hover { transform: translateY(-4px); }
