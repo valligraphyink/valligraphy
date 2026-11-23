@@ -104,9 +104,8 @@
           <h2>Request a Quote</h2>
           <p class="sent" id="sent" hidden>Thank you. Your inquiry was sent. I’ll get back to you soon.</p>
           <p class="lede">Tell me about your event and I’ll get back to you with availability and details. Every booking is custom — contact for a quote.</p>
-          <form class="form" id="quote" action="https://formsubmit.co/valligraphy.ink@gmail.com" method="POST">
+          <form class="form" id="quote">
             <input type="hidden" name="_subject" value="New Valligraphy inquiry" />
-            <input type="hidden" name="_next" value="https://valligraphy.ca/?sent=1#contact" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <label class="field"><span>Name</span><input name="name" required autocomplete="name" /></label>
@@ -133,10 +132,39 @@
       <p id="lightbox-caption"></p>
     </div>
     <script>
-      if (new URLSearchParams(window.location.search).get("sent") === "1") {
-        var sent = document.getElementById("sent");
-        if (sent) sent.hidden = false;
-      }
+      var quote = document.getElementById("quote");
+      var sent = document.getElementById("sent");
+      quote.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var button = quote.querySelector("button");
+        button.disabled = true;
+        button.textContent = "Sending...";
+        if (sent) {
+          sent.hidden = false;
+          sent.textContent = "Sending your inquiry...";
+        }
+        fetch("https://formsubmit.co/ajax/valligraphy.ink@gmail.com", {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(quote)
+        }).then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok && data.success !== false, data: data };
+          });
+        }).then(function (result) {
+          if (result.ok) {
+            quote.reset();
+            if (sent) sent.textContent = "Thank you. Your inquiry was sent. I’ll get back to you soon.";
+          } else {
+            if (sent) sent.textContent = "Sorry, it could not be sent. Please email valligraphy.ink@gmail.com.";
+          }
+        }).catch(function () {
+          if (sent) sent.textContent = "Sorry, it could not be sent. Please email valligraphy.ink@gmail.com.";
+        }).finally(function () {
+          button.disabled = false;
+          button.textContent = "Send Inquiry";
+        });
+      });
 
       // Lightbox
       const lightbox = document.getElementById("lightbox");
