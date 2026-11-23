@@ -122,7 +122,8 @@
           <p class="sent" id="sent" hidden>Thank you. Your inquiry was sent. I’ll get back to you soon.</p>
           <p class="lede">SHARE YOUR DETAILS AND IDEAS, I'LL CONFIRM AVAILABILITY AND PROVIDE A QUOTE, LET'S COLLABORATE!</p>
           <form class="form" id="quote">
-            <input type="hidden" name="_subject" value="New Valligraphy inquiry" />
+            <input type="hidden" name="_subject" value="Valligraphy inquiry" />
+            <input type="hidden" name="_replyto" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
             <label class="field"><span>Name</span><input name="name" required autocomplete="name" /></label>
@@ -154,6 +155,10 @@
       quote.addEventListener("submit", function (event) {
         event.preventDefault();
         var button = quote.querySelector("button");
+        var name = String(new FormData(quote).get("name") || "a visitor");
+        var email = String(new FormData(quote).get("email") || "");
+        quote.querySelector("[name=_subject]").value = "Valligraphy inquiry from " + name;
+        quote.querySelector("[name=_replyto]").value = email;
         button.disabled = true;
         button.textContent = "Sending...";
         if (sent) {
